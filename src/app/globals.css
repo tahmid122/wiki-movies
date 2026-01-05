@@ -17,7 +17,7 @@
     scrollbar-width: none; /* Firefox */
   }
 }
-
+/* custom styles */
 body {
   background: hsl(197 17% 8%);
   color: #d2d6db;
@@ -25,4 +25,7 @@ body {
 }
 .container {
   @apply max-w-395 mx-auto px-2;
+}
+#bannerSlider .swiper-pagination-bullet {
+  background-color: #fff;
 }
