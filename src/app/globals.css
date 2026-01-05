@@ -8,6 +8,15 @@
 @theme inline {
   --font-roboto: var(--font-roboto);
 }
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE & Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
 
 body {
   background: hsl(197 17% 8%);
@@ -15,5 +24,5 @@ body {
   font-family: var(--font-roboto);
 }
 .container {
-  @apply max-w-395 mx-auto px-5;
+  @apply max-w-395 mx-auto px-2;
 }
