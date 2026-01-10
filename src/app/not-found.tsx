@@ -1,7 +1,10 @@
+"use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa6";
 
 const NotFound = () => {
+  const router = useRouter();
   return (
     <div className="h-screen w-full flex items-center justify-center flex-col gap-2 p-5">
       <h1 className="text-7xl text-white font-bold">404</h1>
@@ -10,13 +13,13 @@ const NotFound = () => {
         longer exist or the link is incorrect. Please check the URL, or go back
         to the homepage and search
       </p>
-      <Link
-        href={"/"}
-        className="flex items-center gap-2 py-2 px-4 bg-slate-800 rounded transition-all duration-300 hover:bg-white hover:text-black font-semibold group"
+      <button
+        onClick={() => router.back()}
+        className="flex items-center gap-2 cursor-pointer py-2 px-4 bg-slate-800 rounded transition-all duration-300 hover:bg-white hover:text-black font-semibold group"
       >
         <FaArrowLeft className="group-hover:rotate-360 transition-all duration-500" />{" "}
-        Go Back To Home
-      </Link>
+        Go Back
+      </button>
     </div>
   );
 };
