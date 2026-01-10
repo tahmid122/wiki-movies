@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import SectionTitle from "./SectionTitle";
 import MoviesSection from "./MoviesSection";
+import SkeltonMovies from "./SkeltonMovies";
 
 interface Props {
   title: string;
@@ -13,7 +14,7 @@ const MovieSectionContainer = ({ title, endpoint, link }: Props) => {
       <div className="container">
         <SectionTitle title={title} link={link} />
         {/* Movies Section */}
-        <Suspense fallback={<div>Loading....</div>}>
+        <Suspense fallback={<SkeltonMovies />}>
           <MoviesSection endpoint={endpoint} />
         </Suspense>
       </div>
