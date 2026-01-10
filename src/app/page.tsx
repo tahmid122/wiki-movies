@@ -1,5 +1,5 @@
 import Banner from "@/components/home/Banner";
-import Trending from "@/components/home/Trending";
+import MovieSectionContainer from "@/components/MovieSectionContainer";
 
 const Home = () => {
   return (
@@ -7,7 +7,11 @@ const Home = () => {
       {/* Banner */}
       <Banner />
       {/* Trending Section */}
-      <Trending />
+      <MovieSectionContainer
+        title="Trending"
+        link="/movies/trending"
+        endpoint="/trending/movie/week"
+      />
     </section>
   );
 };
