@@ -1,6 +1,9 @@
+import { customFetch } from "@/utilities/customFetch";
 import MoviesCard from "./MoviesCard";
 
 const MoviesSection = async () => {
+  const data = await customFetch("/trending/movie/week");
+  console.log(data);
   await new Promise<void>((resolve) => {
     setTimeout((): void => {
       resolve();
