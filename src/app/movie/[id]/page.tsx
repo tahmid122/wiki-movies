@@ -3,7 +3,9 @@ import { TMDB_IMAGE_URL } from "@/utilities/baseUrls";
 import { fetchSingleMovie } from "@/utilities/fetchSingleMovie";
 import Image from "next/image";
 import Link from "next/link";
-import { FaArrowLeft } from "react-icons/fa6";
+import { Suspense } from "react";
+import Cast from "./Cast";
+import Recommended from "./Recommended";
 
 interface Props {
   params: {
@@ -13,7 +15,6 @@ interface Props {
 const SingleMovie = async ({ params }: Props) => {
   const { id } = await params;
   const targetMovie = await fetchSingleMovie(parseInt(id));
-
   return (
     <section className="py-30">
       <div className="container">
@@ -43,7 +44,12 @@ const SingleMovie = async ({ params }: Props) => {
               <h3 className="text-base font-semibold">Genres:</h3>
               {targetMovie?.genres.map((genre) => (
                 <li key={genre?.id}>
-                  <Link href={"/"} className="hover:underline">
+                  <Link
+                    href={`/movie/${genre?.name.toLocaleLowerCase()}/${
+                      genre?.id
+                    }`}
+                    className="underline"
+                  >
                     {genre?.name}
                   </Link>
                 </li>
@@ -82,6 +88,20 @@ const SingleMovie = async ({ params }: Props) => {
                   </div>
                 ))}
             </div>
+          </div>
+          {/* Casts */}
+          <div className="flex flex-col gap-2 mt-3">
+            <h3 className="text-base font-semibold">Casts and Credits:</h3>
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <Cast id={parseInt(id)} />
+            </Suspense>
+          </div>
+          {/* You May Like */}
+          <div className="flex flex-col gap-2 mt-3">
+            <h3 className="text-base font-semibold">You May Like:</h3>
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <Recommended genre={targetMovie.genres[0].id} />
+            </Suspense>
           </div>
         </div>
       </div>
