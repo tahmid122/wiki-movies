@@ -4,9 +4,10 @@ import { notFound } from "next/navigation";
 interface Props {
   endpoint: string;
   page?: number;
+  other?: string;
 }
-const MoviesSection = async ({ endpoint, page }: Props) => {
-  const movies = await customFetch(endpoint, page);
+const MoviesSection = async ({ endpoint, page, other }: Props) => {
+  const movies = await customFetch(endpoint, page, other);
   if (movies.results.length === 0) {
     notFound();
   }

@@ -3,13 +3,14 @@ import { TMDB_BASE_URL } from "./baseUrls";
 import { notFound } from "next/navigation";
 export const customFetch = async (
   endPoint: string,
-  page?: number
+  page?: number,
+  other?: string
 ): Promise<Result> => {
   try {
     const res = await fetch(
       `${TMDB_BASE_URL}${endPoint}?api_key=${process.env.TMDB_API_KEY}&page=${
         page || 1
-      }`,
+      }&${other}`,
       { next: { revalidate: 60 } }
     );
     if (!res.ok) {

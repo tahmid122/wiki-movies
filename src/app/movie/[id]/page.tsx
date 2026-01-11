@@ -45,9 +45,9 @@ const SingleMovie = async ({ params }: Props) => {
               {targetMovie?.genres.map((genre) => (
                 <li key={genre?.id}>
                   <Link
-                    href={`/movie/${genre?.name.toLocaleLowerCase()}/${
+                    href={`/movies/genres/${genre?.name.toLocaleLowerCase()}/${
                       genre?.id
-                    }`}
+                    }/1`}
                     className="underline"
                   >
                     {genre?.name}

@@ -7,7 +7,7 @@ interface Props {
 }
 const Pagination = ({ currentPage }: Props) => {
   const path = usePathname();
-  const targetPathname = path.split("/").slice(1, 3).join("/");
+  const targetPathname = path.split("/").slice(1, 5).join("/");
   const router = useRouter();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
