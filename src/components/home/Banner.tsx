@@ -14,11 +14,13 @@ const bannerArray: string[] = [
   "/banner/banner7.jpg",
   "/banner/banner8.jpg",
   "/banner/banner9.jpg",
-  "/banner/banner4.jpg",
+  "/banner/banner9.jpg",
+  "/banner/banner8.jpg",
+  "/banner/banner7.jpg",
 ];
 const Banner = () => {
   return (
-    <div className="h-100 xl:h-167 w-full relative" id="bannerSlider">
+    <div className="h-100 xl:h-167 pt-15 w-full relative" id="bannerSlider">
       <Swiper
         pagination={{
           dynamicBullets: true,
@@ -27,6 +29,7 @@ const Banner = () => {
           delay: 5000,
           disableOnInteraction: true,
         }}
+        slidesPerView={3}
         modules={[Pagination, Autoplay]}
         className="mySwiper w-full h-full"
       >

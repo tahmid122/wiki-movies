@@ -3,7 +3,7 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 
 const NavBar = () => {
   return (
-    <header className="fixed left-0 top-0 py-2 lg:py-3 w-full z-40 backdrop-blur-xs">
+    <header className="fixed left-0 top-0 py-2 lg:py-3 w-full z-40 bg-black">
       <nav className="container flex items-center justify-between">
         {/* logo */}
 
