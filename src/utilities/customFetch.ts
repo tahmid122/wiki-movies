@@ -1,5 +1,6 @@
 import { Result } from "@/types/resultType";
 import { TMDB_BASE_URL } from "./baseUrls";
+import { notFound } from "next/navigation";
 export const customFetch = async (
   endPoint: string,
   page?: number
@@ -18,6 +19,6 @@ export const customFetch = async (
     return data;
   } catch (error) {
     console.log("Fetch error: ", error);
-    return { page: 1, results: [], total_pages: 0, total_results: 0 };
+    notFound();
   }
 };
