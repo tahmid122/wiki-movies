@@ -13,7 +13,7 @@ const MoviesCard = ({ movie }: Props) => {
     >
       <div className="w-full h-90 rounded-lg border border-slate-700 relative overflow-hidden">
         <Image
-          src={`${TMDB_IMAGE_URL}${movie.poster_path}`}
+          src={`${TMDB_IMAGE_URL}${movie?.poster_path}`}
           alt={movie?.title}
           loading="eager"
           fill

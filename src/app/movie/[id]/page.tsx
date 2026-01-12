@@ -40,21 +40,23 @@ const SingleMovie = async ({ params }: Props) => {
               {targetMovie?.release_date} • {targetMovie?.runtime} min
             </p>
             {/* Genres */}
-            <ul className="flex items-center gap-2">
+            <div className="flex items-center flex-wrap gap-2">
               <h3 className="text-base font-semibold">Genres:</h3>
-              {targetMovie?.genres.map((genre) => (
-                <li key={genre?.id}>
-                  <Link
-                    href={`/movies/genres/${genre?.name.toLocaleLowerCase()}/${
-                      genre?.id
-                    }/1`}
-                    className="underline"
-                  >
-                    {genre?.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+              <ul className="flex gap-2 items-center flex-wrap">
+                {targetMovie?.genres.map((genre) => (
+                  <li key={genre?.id}>
+                    <Link
+                      href={`/movies/genres/${genre?.name.toLocaleLowerCase()}/${
+                        genre?.id
+                      }/1`}
+                      className="underline"
+                    >
+                      {genre?.name}
+                    </Link>
+                  </li>
+                ))}{" "}
+              </ul>
+            </div>
             {/* budget */}
             <div className="flex items-center gap-2">
               <h3 className="text-base font-semibold">Budget:</h3>
@@ -100,7 +102,7 @@ const SingleMovie = async ({ params }: Props) => {
           <div className="flex flex-col gap-2 mt-3">
             <h3 className="text-base font-semibold">You May Like:</h3>
             <Suspense fallback={<h1>Loading...</h1>}>
-              <Recommended genre={targetMovie.genres[0].id} />
+              <Recommended genre={targetMovie?.genres[0]?.id} />
             </Suspense>
           </div>
         </div>
