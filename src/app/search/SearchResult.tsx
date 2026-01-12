@@ -4,7 +4,6 @@ import MoviesCard from "@/components/MoviesCard";
 import SkeltonMovies from "@/components/SkeltonMovies";
 import { Movie } from "@/types/movieType";
 import { Result } from "@/types/resultType";
-import { TMDB_BASE_URL } from "@/utilities/baseUrls";
 import { useEffect, useState } from "react";
 
 interface Props {

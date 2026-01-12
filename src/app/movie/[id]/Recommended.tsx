@@ -7,7 +7,8 @@ interface Props {
 }
 const Recommended = async ({ genre }: Props) => {
   const res = await fetch(
-    `${TMDB_BASE_URL}/discover/movie?with_genres=${genre}&api_key=${process.env.TMDB_API_KEY}`
+    `${TMDB_BASE_URL}/discover/movie?with_genres=${genre}&api_key=${process.env.TMDB_API_KEY}`,
+    { next: { revalidate: 60 } }
   );
   const data: Result = await res.json();
   return (

@@ -16,7 +16,10 @@ interface Props {
 }
 const Cast = async ({ id }: Props) => {
   const res = await fetch(
-    `${TMDB_BASE_URL}/movie/${id}/credits?api_key=${process.env.TMDB_API_KEY}`
+    `${TMDB_BASE_URL}/movie/${id}/credits?api_key=${process.env.TMDB_API_KEY}`,
+    {
+      next: { revalidate: 60 },
+    }
   );
 
   const data: Result = await res.json();
