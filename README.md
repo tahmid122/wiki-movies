@@ -514,6 +514,9 @@ This is a portfolio project. Not for commercial uses. The design of this website
 
 **Made with ❤️ by Tahmid Alam**
 
+**Whatsapp: +88 01318195591**
+**Email: mdtahmidalam122@gmail.com**
+
 <div align="center">
 
 **[⬆ back to top](#wikii-movies---ultimate-entertainment-hub)**
