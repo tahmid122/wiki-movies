@@ -8,8 +8,8 @@ const Search = () => {
     <section className="py-20">
       <div className="container">
         {/*  */}
-        <div className="mb-5">
-          <div className="max-w-212.5 mx-auto px-3">
+        <div>
+          <div className="max-w-212.5 mx-auto px-3 sticky top-0 left-0 z-50">
             <input
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setQuery(e.target.value)
