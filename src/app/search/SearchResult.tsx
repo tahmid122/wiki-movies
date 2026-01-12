@@ -24,7 +24,7 @@ const SearchResult = ({ query }: Props) => {
         try {
           setLoading(true);
           const res = await fetch(
-            `${TMDB_BASE_URL}/search/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&query=${query}`
+            `/api/search?query=${encodeURIComponent(query)}`
           );
           const data: Result = await res.json();
           const movies: Movie[] = data.results;
