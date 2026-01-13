@@ -98,17 +98,17 @@ const Banner = () => {
                   <h1 className="text-4xl font-semibold">{banner.title}</h1>
                   <p>{banner?.description}</p>
                   <ul className="text-sm">
-                    <li className="flex items-center gap-2">
+                    <li className="flex items-center flex-wrap gap-1">
                       <span className="text-red-500">Staring:</span>
-                      <ul className="flex gap-1 items-center">
+                      <ul className="flex gap-1 items-center flex-wrap">
                         {banner?.staring.map((star, idx) => (
                           <li key={idx}>{star}</li>
                         ))}
                       </ul>
                     </li>
-                    <li className="flex items-center gap-2">
+                    <li className="flex items-center flex-wrap gap-2">
                       <span className="text-red-500">Genres:</span>
-                      <ul className="flex gap-1 items-center">
+                      <ul className="flex gap-1 items-center flex-wrap">
                         {banner.genres.map((genre, idx) => (
                           <li key={idx}>
                             <Link href={genre.link} className="underline">
