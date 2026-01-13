@@ -15,10 +15,13 @@ const MovieListByCategory = async ({ params }: Props) => {
   const queryParams = await params;
   const pageNumber = parseInt(queryParams.page);
   const category = queryParams.category;
-
+  const endpoint =
+    queryParams.category != "trending"
+      ? `movie/${queryParams.category}`
+      : `${queryParams.category}/movie/day`;
   // get page numbers
   const res = await fetch(
-    `${TMDB_BASE_URL}/movie/${queryParams.category}?api_key=${process.env.TMDB_API_KEY}`
+    `${TMDB_BASE_URL}/${endpoint}?api_key=${process.env.TMDB_API_KEY}`
   );
   const data: Result = await res.json();
   return (
