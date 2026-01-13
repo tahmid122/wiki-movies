@@ -43,7 +43,7 @@ const SearchResult = ({ query }: Props) => {
       {loading ? (
         <SkeltonMovies />
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-4">
           {movies && movies.length > 0 ? (
             movies.map((movie) => <MoviesCard key={movie.id} movie={movie} />)
           ) : (

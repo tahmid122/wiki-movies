@@ -1,6 +1,7 @@
 "use client";
 import { ChangeEvent, useState } from "react";
 import SearchResult from "./SearchResult";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 const Search = () => {
   const [query, setQuery] = useState<string>("");
@@ -9,15 +10,17 @@ const Search = () => {
       <div className="container">
         {/*  */}
         <div>
-          <div className="max-w-212.5 mx-auto px-3 sticky top-0 left-0 z-50">
+          <div className="max-w-212.5 mx-auto px-3 sticky top-16 lg:top-18 left-0 z-30">
+            <FaMagnifyingGlass className="absolute top-[50%] -translate-y-[50%] left-5 text-xl z-40 text-gray-400" />
+
             <input
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setQuery(e.target.value)
               }
               type="text"
               name="search"
-              className="w-full border border-slate-700 outline-none text-base p-3 rounded-xl sticky top-5 left-0 z-50 focus:border-slate-500 bg-black"
-              placeholder="Search movies"
+              className="w-full border border-slate-700 outline-none text-base p-3 sticky top-5 left-0 z-30 focus:border-red-500 bg-black pl-9"
+              placeholder="Search movies..."
             />
           </div>
           {/* search result */}
