@@ -23,7 +23,7 @@ const NavBar = async () => {
         {/* logo */}
 
         <Link href={"/"}>
-          <div className="text-xl xl:text-xl uppercase font-bold text-white text-shadow-2xs flex items-center">
+          <div className="text-xl xl:text-2xl uppercase font-bold text-white text-shadow-2xs flex items-center">
             Wikii
             <div className="w-12 h-12 relative rounded-full overflow-hidden">
               <Image
