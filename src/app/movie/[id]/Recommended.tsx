@@ -12,7 +12,7 @@ const Recommended = async ({ genre }: Props) => {
   );
   const data: Result = await res.json();
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-3">
       {data?.results.map((movie) => (
         <MoviesCard key={movie.id} movie={movie} />
       ))}
