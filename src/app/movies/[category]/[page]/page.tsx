@@ -19,7 +19,7 @@ const MovieListByCategory = async ({ params }: Props) => {
       {category !== "trending" ? (
         <section className="py-15">
           <div className="container">
-            <h2 className="text-white text-3xl font-medium mb-10 capitalize">
+            <h2 className="text-white text-3xl font-medium border-l-4 border-l-red-500 pl-2 mb-10 capitalize">
               {category} ({pageNumber})
             </h2>
             {/* Movies Section */}
@@ -34,8 +34,8 @@ const MovieListByCategory = async ({ params }: Props) => {
       ) : (
         <section className="py-15">
           <div className="container">
-            <h2 className="text-white text-3xl font-medium mb-10 capitalize">
-              {category}
+            <h2 className="text-white text-3xl font-medium border-l-4 border-l-red-500 pl-2 mb-10 capitalize">
+              {category} ({pageNumber})
             </h2>
             {/* Movies Section */}
             <Suspense fallback={<SkeltonMovies />}>
