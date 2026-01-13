@@ -4,14 +4,22 @@ import { Suspense } from "react";
 import Pagination from "./Pagnination";
 import { TMDB_BASE_URL } from "@/utilities/baseUrls";
 import { Result } from "@/types/resultType";
+import { Metadata } from "next";
 
-interface Props {
-  params: {
-    genre: string;
-    genre_id: string;
-    page: string;
+type Props = {
+  params: Promise<{ genre: string; genre_id: string; page: string }>;
+};
+// meta data
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const slug = await params;
+
+  return {
+    title: slug?.genre.toUpperCase(),
+    description:
+      "Wikii Movies is your all-in-one entertainment hub with Movies, Series, Live TV & more!",
   };
 }
+
 const GenreMovies = async ({ params }: Props) => {
   const { genre, genre_id, page } = await params;
   // get page numbers

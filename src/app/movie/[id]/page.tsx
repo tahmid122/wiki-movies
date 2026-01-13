@@ -5,12 +5,21 @@ import Link from "next/link";
 import { Suspense } from "react";
 import Cast from "./Cast";
 import Recommended from "./Recommended";
+import { Metadata } from "next";
 
-interface Props {
-  params: {
-    id: string;
+type Props = {
+  params: Promise<{ id: string }>;
+};
+// meta data
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const slug = await params;
+  const targetMovie = await fetchSingleMovie(parseInt(slug.id));
+  return {
+    title: targetMovie.title,
+    description: targetMovie.overview,
   };
 }
+
 const SingleMovie = async ({ params }: Props) => {
   const { id } = await params;
   const targetMovie = await fetchSingleMovie(parseInt(id));

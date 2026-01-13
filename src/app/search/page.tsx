@@ -2,7 +2,6 @@
 import { ChangeEvent, useState } from "react";
 import SearchResult from "./SearchResult";
 import { FaMagnifyingGlass } from "react-icons/fa6";
-
 const Search = () => {
   const [query, setQuery] = useState<string>("");
   return (

@@ -10,7 +10,10 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Wikii Movies | Ultimate Entertainment",
+  title: {
+    default: "Wikii Movies | Ultimate Entertainment",
+    template: "%s | Wikii Movies | Ultimate Entertainment",
+  },
   description:
     "Wikii Movies is your all-in-one entertainment hub with Movies, Series, Live TV & more!",
 };

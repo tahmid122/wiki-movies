@@ -3,14 +3,23 @@ import Pagination from "@/components/Pagination";
 import SkeltonMovies from "@/components/SkeltonMovies";
 import { Result } from "@/types/resultType";
 import { TMDB_BASE_URL } from "@/utilities/baseUrls";
+import { Metadata } from "next";
 import { Suspense } from "react";
 
-interface Props {
-  params: {
-    page: string;
-    category: string;
+type Props = {
+  params: Promise<{ category: string; page: string }>;
+};
+// meta data
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const slug = await params;
+
+  return {
+    title: slug?.category.toUpperCase(),
+    description:
+      "Wikii Movies is your all-in-one entertainment hub with Movies, Series, Live TV & more!",
   };
 }
+
 const MovieListByCategory = async ({ params }: Props) => {
   const queryParams = await params;
   const pageNumber = parseInt(queryParams.page);
@@ -42,7 +51,7 @@ const MovieListByCategory = async ({ params }: Props) => {
           </div>
         </section>
       ) : (
-        <section className="py-20 lg:py-30">
+        <section>
           <div className="container">
             <h2 className="text-white text-3xl font-medium border-l-4 border-l-red-500 pl-2 mb-10 capitalize">
               {category} ({pageNumber})
