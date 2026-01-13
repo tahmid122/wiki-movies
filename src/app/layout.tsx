@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   verification: {
     google: "ZhLX1JQjIuxBnCbavl9UpaXiJjJXzJmzMoDnFnZezH4",
   },
+  authors: [
+    { name: "Tahmid Alam" },
+    {
+      name: "Md Tahmid Alam",
+      url: "https://www.linkedin.com/in/mdtahmidalam/",
+    },
+  ],
 };
 
 export default function RootLayout({

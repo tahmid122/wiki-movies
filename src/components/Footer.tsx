@@ -34,29 +34,41 @@ const Footer = () => {
               </h2>
               <ul className="text-body font-medium">
                 <li className="mb-4">
-                  <Link href="/movies/trending/1" className="hover:underline">
+                  <Link
+                    href="/movies/trending/1"
+                    className="hover:underline transition-all duration-300 hover:text-red-500"
+                  >
                     Trending
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/movies/popular/1" className="hover:underline">
+                  <Link
+                    href="/movies/popular/1"
+                    className="hover:underline transition-all duration-300 hover:text-red-500"
+                  >
                     Popular
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/movies/top_rated/1" className="hover:underline">
+                  <Link
+                    href="/movies/top_rated/1"
+                    className="hover:underline transition-all duration-300 hover:text-red-500"
+                  >
                     Top Rated
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/movies/upcoming/1" className="hover:underline">
+                  <Link
+                    href="/movies/upcoming/1"
+                    className="hover:underline transition-all duration-300 hover:text-red-500"
+                  >
                     Upcoming
                   </Link>
                 </li>
                 <li className="mb-4">
                   <Link
                     href="/movies/now_playing/1"
-                    className="hover:underline"
+                    className="hover:underline transition-all duration-300 hover:text-red-500"
                   >
                     Now Playing
                   </Link>
@@ -71,7 +83,7 @@ const Footer = () => {
                 <li className="mb-4">
                   <Link
                     href="/movies/genres/fantasy/14/1"
-                    className="hover:underline"
+                    className="hover:underline transition-all duration-300 hover:text-red-500"
                   >
                     Fantasy
                   </Link>
@@ -79,7 +91,7 @@ const Footer = () => {
                 <li className="mb-4">
                   <Link
                     href="/movies/genres/horror/27/1"
-                    className="hover:underline"
+                    className="hover:underline transition-all duration-300 hover:text-red-500"
                   >
                     Horror
                   </Link>
@@ -87,7 +99,7 @@ const Footer = () => {
                 <li className="mb-4">
                   <Link
                     href="/movies/genres/mystery/9648/1"
-                    className="hover:underline"
+                    className="hover:underline transition-all duration-300 hover:text-red-500"
                   >
                     Mystery
                   </Link>
@@ -95,7 +107,7 @@ const Footer = () => {
                 <li className="mb-4">
                   <Link
                     href="/movies/genres/thriller/53/1"
-                    className="hover:underline"
+                    className="hover:underline transition-all duration-300 hover:text-red-500"
                   >
                     Thriller
                   </Link>
@@ -103,7 +115,7 @@ const Footer = () => {
                 <li className="mb-4">
                   <Link
                     href="/movies/genres/western/37/1"
-                    className="hover:underline"
+                    className="hover:underline transition-all duration-300 hover:text-red-500"
                   >
                     Western
                   </Link>
@@ -116,27 +128,42 @@ const Footer = () => {
               </h2>
               <ul className="text-body font-medium">
                 <li className="mb-4">
-                  <Link href="/" className="hover:underline">
+                  <Link
+                    href="/"
+                    className="hover:underline transition-all duration-300 hover:text-red-500"
+                  >
                     About Us
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/" className="hover:underline">
+                  <Link
+                    href="/"
+                    className="hover:underline transition-all duration-300 hover:text-red-500"
+                  >
                     Copyright
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/" className="hover:underline">
+                  <Link
+                    href="/"
+                    className="hover:underline transition-all duration-300 hover:text-red-500"
+                  >
                     References
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/" className="hover:underline">
+                  <Link
+                    href="/"
+                    className="hover:underline transition-all duration-300 hover:text-red-500"
+                  >
                     Privacy Policy
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link href="/" className="hover:underline">
+                  <Link
+                    href="/"
+                    className="hover:underline transition-all duration-300 hover:text-red-500"
+                  >
                     Terms and Conditions
                   </Link>
                 </li>
@@ -148,7 +175,10 @@ const Footer = () => {
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-body sm:text-center text-center w-full block sm:inline sm:w-auto">
             © 2026
-            <Link href="/" className="hover:underline">
+            <Link
+              href="/"
+              className="hover:underline transition-all duration-300 hover:text-red-500"
+            >
               {" "}
               Wikii Movies
             </Link>
