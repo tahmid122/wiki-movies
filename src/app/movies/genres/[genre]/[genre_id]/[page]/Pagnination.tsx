@@ -1,15 +1,15 @@
 "use client";
 import { usePathname, useRouter } from "next/navigation";
-import { ChangeEvent, useEffect, useRef } from "react";
+import { ChangeEvent, useMemo } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 interface Props {
   currentPage: number;
+  totalPages: number;
 }
-const Pagination = ({ currentPage }: Props) => {
+const Pagination = ({ currentPage, totalPages }: Props) => {
   const path = usePathname();
   const targetPathname = path.split("/").slice(1, 5).join("/");
   const router = useRouter();
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Prev
   const handlePrev = () => {
@@ -23,49 +23,42 @@ const Pagination = ({ currentPage }: Props) => {
       router.push(`/${targetPathname}/${currentPage + 1}`);
     }
   };
-  const handleCustomValue = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleCustomValue = (e: ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
-
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
     if (value === "") return;
-
     const numValue = parseInt(value, 10);
-
     if (isNaN(numValue) || numValue <= 0) return;
-
-    timeoutRef.current = setTimeout(() => {
-      router.push(`/${targetPathname}/${numValue}`);
-    }, 1500);
+    router.push(`/${targetPathname}/${numValue}`);
   };
 
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, []);
+  const numbers = useMemo(() => {
+    return [...Array(totalPages > 100 ? 100 : totalPages).keys()].map(
+      (n) => n + 1
+    );
+  }, [totalPages]);
   return (
     <div className="flex items-center justify-center">
       {/* pagination box */}
       <button
         onClick={handlePrev}
-        className="border border-slate-700 p-2 text-sm cursor-pointer flex items-center justify-center gap-1 hover:bg-white hover:text-black transition-all duration-300"
+        disabled={currentPage <= 1}
+        className=" p-2 text-sm cursor-pointer flex items-center justify-center gap-1 hover:text-red-500  transition-all duration-300"
       >
         <FaArrowLeft /> Prev
       </button>
-      <input
+      <select
         onChange={handleCustomValue}
-        min={1}
-        type="number"
         defaultValue={currentPage}
-        className="border border-slate-700 p-2 text-sm text-white flex items-center justify-center gap-1 text-center bg-transparent outline-none"
-      ></input>
+        className="border border-red-700 p-2 text-sm text-white flex items-center justify-center gap-1 text-center outline-none bg-black no-scrollbar2"
+      >
+        {numbers?.map((number) => (
+          <option key={number}>{number}</option>
+        ))}
+      </select>
       <button
         onClick={handleNext}
-        className="border border-slate-700 p-2 text-sm cursor-pointer flex items-center justify-center gap-1 hover:bg-white hover:text-black transition-all duration-300"
+        disabled={currentPage >= 100}
+        className=" p-2 text-sm cursor-pointer flex items-center justify-center gap-1 hover:text-red-500  transition-all duration-300"
       >
         Next
         <FaArrowRight />

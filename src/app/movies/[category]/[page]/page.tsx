@@ -1,6 +1,8 @@
 import MoviesSection from "@/components/MoviesSection";
 import Pagination from "@/components/Pagination";
 import SkeltonMovies from "@/components/SkeltonMovies";
+import { Result } from "@/types/resultType";
+import { TMDB_BASE_URL } from "@/utilities/baseUrls";
 import { Suspense } from "react";
 
 interface Props {
@@ -14,6 +16,11 @@ const MovieListByCategory = async ({ params }: Props) => {
   const pageNumber = parseInt(queryParams.page);
   const category = queryParams.category;
 
+  // get page numbers
+  const res = await fetch(
+    `${TMDB_BASE_URL}/movie/${queryParams.category}?api_key=${process.env.TMDB_API_KEY}`
+  );
+  const data: Result = await res.json();
   return (
     <section className="py-15">
       {category !== "trending" ? (
@@ -49,7 +56,10 @@ const MovieListByCategory = async ({ params }: Props) => {
       )}
       {/* Pagination */}
       <div className="container">
-        <Pagination currentPage={pageNumber} />
+        <Pagination
+          currentPage={pageNumber}
+          totalPages={data.total_pages || 0}
+        />
       </div>
     </section>
   );

@@ -2,6 +2,8 @@ import MoviesSection from "@/components/MoviesSection";
 import SkeltonMovies from "@/components/SkeltonMovies";
 import { Suspense } from "react";
 import Pagination from "./Pagnination";
+import { TMDB_BASE_URL } from "@/utilities/baseUrls";
+import { Result } from "@/types/resultType";
 
 interface Props {
   params: {
@@ -12,6 +14,11 @@ interface Props {
 }
 const GenreMovies = async ({ params }: Props) => {
   const { genre, genre_id, page } = await params;
+  // get page numbers
+  const res = await fetch(
+    `${TMDB_BASE_URL}/discover/movie?with_genres=${genre_id}&api_key=${process.env.TMDB_API_KEY}`
+  );
+  const data: Result = await res.json();
   return (
     <section className="py-30">
       <div className="container">
@@ -28,7 +35,10 @@ const GenreMovies = async ({ params }: Props) => {
         </Suspense>
         {/*  Pagination*/}
         <div className="mt-10">
-          <Pagination currentPage={parseInt(page)} />
+          <Pagination
+            currentPage={parseInt(page)}
+            totalPages={data?.total_pages}
+          />
         </div>
       </div>
     </section>
