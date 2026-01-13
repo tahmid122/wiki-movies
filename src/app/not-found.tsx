@@ -15,9 +15,9 @@ const NotFound = () => {
       </p>
       <button
         onClick={() => router.back()}
-        className="flex items-center gap-2 cursor-pointer py-2 px-4 bg-slate-800 rounded transition-all duration-300 hover:bg-white hover:text-black font-semibold group"
+        className="flex items-center gap-2 cursor-pointer py-2 px-4 bg-red-500 rounded transition-all duration-300 hover:bg-red-700 font-semibold group"
       >
-        <FaArrowLeft className="group-hover:rotate-360 transition-all duration-500" />{" "}
+        <FaArrowLeft className="group-hover:mr-2 transition-all duration-300" />{" "}
         Go Back
       </button>
     </div>

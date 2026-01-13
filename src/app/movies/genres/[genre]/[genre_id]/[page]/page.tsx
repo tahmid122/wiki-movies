@@ -23,7 +23,7 @@ const GenreMovies = async ({ params }: Props) => {
     <section className="py-30">
       <div className="container">
         <h2 className="text-white text-3xl font-medium capitalize mb-5">
-          {decodeURIComponent(genre)}
+          {decodeURIComponent(genre)} ({page})
         </h2>
         {/* movies container */}
         <Suspense fallback={<SkeltonMovies />}>
