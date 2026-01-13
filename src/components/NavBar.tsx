@@ -18,7 +18,7 @@ const NavBar = async () => {
   }
   const genres: { genres: Genre[] } = await res.json();
   return (
-    <header className="fixed left-0 top-0 py-2 lg:py-3 w-full z-40 bg-black border-b border-b-slate-700">
+    <header className="fixed left-0 top-0 py-2 lg:py-3 w-full z-40 bg-black border-b border-b-slate-800">
       <nav className="container flex items-center justify-between">
         {/* logo */}
 
