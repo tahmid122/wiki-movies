@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   },
   description:
     "Wikii Movies is your all-in-one entertainment hub with Movies, Series, Live TV & more!",
+  verification: {
+    google: "ZhLX1JQjIuxBnCbavl9UpaXiJjJXzJmzMoDnFnZezH4",
+  },
 };
 
 export default function RootLayout({
