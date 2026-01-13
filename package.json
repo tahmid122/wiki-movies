@@ -11,6 +11,7 @@
   "dependencies": {
     "@hugeicons/react": "^1.1.4",
     "ldrs": "^1.1.9",
+    "motion": "^12.26.1",
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",

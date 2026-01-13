@@ -24,7 +24,7 @@ const Cast = async ({ id }: Props) => {
 
   const data: Result = await res.json();
   const casts: Cast[] = data.cast;
-
+  console.log(casts);
   return (
     <div className="flex items-center gap-2 flex-wrap">
       {casts?.map((cast) => (
