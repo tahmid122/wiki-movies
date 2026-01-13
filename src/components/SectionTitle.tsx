@@ -13,10 +13,10 @@ const SectionTitle = ({ title, link = "/" }: Props) => {
       </h2>
       <Link
         href={link}
-        className="flex items-center gap-1 bg-red-500 font-semibold py-1 px-2 rounded transition-all duration-300 hover:bg-red-700 text-sm group"
+        className="flex items-center gap-1 text-red-500 py-1 px-2 rounded transition-all duration-300 hover:text-red-700 text-sm group capitalize font-bold"
       >
         See all
-        <FaArrowRight className="group-hover:ml-2 transition-all duration-300" />
+        <FaArrowRight />
       </Link>
     </div>
   );

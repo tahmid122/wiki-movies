@@ -20,9 +20,9 @@ const GenreMovies = async ({ params }: Props) => {
   );
   const data: Result = await res.json();
   return (
-    <section className="py-15 lg:py-30">
+    <section className="py-20 lg:py-30">
       <div className="container">
-        <h2 className="text-white text-3xl font-medium capitalize mb-5">
+        <h2 className="text-white text-3xl font-medium border-l-4 border-l-red-500 pl-2 mb-10 capitalize">
           {decodeURIComponent(genre)} ({page})
         </h2>
         {/* movies container */}

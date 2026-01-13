@@ -25,9 +25,9 @@ const MovieListByCategory = async ({ params }: Props) => {
   );
   const data: Result = await res.json();
   return (
-    <section className="py-15">
+    <section className="py-20 lg:py-30">
       {category !== "trending" ? (
-        <section className="py-15">
+        <section>
           <div className="container">
             <h2 className="text-white text-3xl font-medium border-l-4 border-l-red-500 pl-2 mb-10 capitalize">
               {category} ({pageNumber})
@@ -42,7 +42,7 @@ const MovieListByCategory = async ({ params }: Props) => {
           </div>
         </section>
       ) : (
-        <section className="py-15">
+        <section className="py-20 lg:py-30">
           <div className="container">
             <h2 className="text-white text-3xl font-medium border-l-4 border-l-red-500 pl-2 mb-10 capitalize">
               {category} ({pageNumber})
